@@ -24,7 +24,6 @@ namespace lms.Controllers
         }
 
         // GET: Courses
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var lmsDBContext = _context.Course.Include(c => c.Category);
@@ -32,7 +31,6 @@ namespace lms.Controllers
         }
 
         // GET: Courses/Details/5
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Course == null)
@@ -61,7 +59,6 @@ namespace lms.Controllers
         }
 
         // GET: Courses/Create
-        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
@@ -87,7 +84,6 @@ namespace lms.Controllers
         }
 
         // GET: Courses/Edit/5
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Course == null)
@@ -104,7 +100,6 @@ namespace lms.Controllers
             return View(course);
         }
 
-        [Authorize(Roles = "Admin")]
         // POST: Courses/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -142,7 +137,6 @@ namespace lms.Controllers
         }
 
         // GET: Courses/Delete/5
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Course == null)
@@ -162,7 +156,6 @@ namespace lms.Controllers
         }
 
         // POST: Courses/Delete/5
-        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

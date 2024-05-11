@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Authorization;
 namespace lms.Controllers
 {
 
-    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private readonly LmsDBContext _context;

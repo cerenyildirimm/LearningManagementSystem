@@ -9,7 +9,6 @@ namespace lms.Models
     public class LmsDBContext: IdentityDbContext<IdentityUser>
     {
         private readonly IConfiguration configuration;
-
         public DbSet<Course> Course { get; set; }
         public DbSet<Category> Category { get; set; }
 

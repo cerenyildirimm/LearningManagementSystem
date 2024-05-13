@@ -6,6 +6,7 @@ using System;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
+var host = new WebHostBuilder().UseUrls("http://*:5000");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -34,7 +35,6 @@ if (!app.Environment.IsDevelopment())
         await next();
     });
 }
-
 
 
 
